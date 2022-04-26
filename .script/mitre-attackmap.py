@@ -206,7 +206,7 @@ def get_fusion_alerts():
         ],
     )
 
-    result = fusion_df.append(df2, ignore_index=True)
+    result = pd.concat([fusion_df, df2], ignore_index=True)
     result["DetectionType"] = "Fusion"
     result["DetectionService"] = "Microsoft Sentinel Fusion"
     result["DetectionURL"] = alerts_url
@@ -797,9 +797,11 @@ def main():
         frames = [result, msft_df]
         final = pd.concat(frames)
 
+        logging.info(f"Final entries: Sentinel + MSFT Built-in alerts: {len(final)}")
+
         # Export the whole dataset with headers
         final.to_csv(out_path, index=False)
-
+        logging.info(f"Output csv file written to : {out_path}")
     except Exception as e:
         logging.error(f"Error Details: {e}")
 
