@@ -28,10 +28,11 @@ jobs:
           pip install requests pandas attackcti ruamel.yaml requests_html
 
       - name: 🚀 Run automation script
-        run: ls -la
+        run: python master/.script/mitre-attackmap.py
 
       - name: Commit files
         run: |
+          cd master
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add *
