@@ -705,7 +705,7 @@ def main():
         # Export the whole dataset
         logging.info(f"Writing csv files to temporary directory")
         curr_path = Path.cwd()
-        out_path = curr_path / "output" / "MicrosoftSentinel.csv"
+        out_path = curr_path / "master" / "output" / "MicrosoftSentinel.csv"
         try:
             out_path.parents[0].mkdir(parents=True, exist_ok=False)
         except FileExistsError:
