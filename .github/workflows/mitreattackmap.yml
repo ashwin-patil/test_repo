@@ -28,7 +28,7 @@ jobs:
           pip install requests pandas attackcti ruamel.yaml requests_html
 
       - name: 🚀 Run automation script
-        run: python  mitre-attackmap.py
+        run: ls -la
 
       - name: Commit files
         run: |
